@@ -1,0 +1,8 @@
+# Ubuntu Precise
+deb https://apt.dockerproject.org/repo ubuntu-precise main
+# Ubuntu Trusty
+deb https://apt.dockerproject.org/repo ubuntu-trusty main
+# Ubuntu Vivid
+deb https://apt.dockerproject.org/repo ubuntu-vivid main
+# Ubuntu Wily
+deb https://apt.dockerproject.org/repo ubuntu-wily main
