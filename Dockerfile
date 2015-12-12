@@ -2,7 +2,8 @@ FROM java:7
 
 MAINTAINER alexsmirnov
 
-RUN wget -q -O - http://mirror.vorboss.net/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz | tar -xzf - -C /opt
+RUN wget -nv -O - http://mirror.vorboss.net/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz \
+   | tar -xzf - -C /opt
 
 COPY zoo.cfg /opt/zookeeper-3.4.6/conf/zoo.cfg
 
