@@ -1,4 +1,4 @@
-FROM java:7
+FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK8
 
 MAINTAINER alexsmirnov
 
