@@ -7,7 +7,7 @@
 
 # The name of the cluster. This is mainly used to prevent machines in
 # one logical cluster from joining another.
-cluster_name: 'Docker Cluster'
+cluster_name: '_CLUSTER_'
 
 # This defines the number of tokens randomly assigned to this node on the ring
 # The more tokens, relative to other nodes, the larger the proportion of data
@@ -272,7 +272,7 @@ seed_provider:
       parameters:
           # seeds is actually a comma-delimited list of addresses.
           # Ex: "<ip1>,<ip2>,<ip3>"
-          - seeds: "dseseed"
+          - seeds: "_SEEDS_"
 
 # For workloads with more data than can fit in memory, Cassandra's
 # bottleneck will be reads that need to fetch data from
@@ -385,7 +385,7 @@ ssl_storage_port: 7001
 # you can specify which should be chosen using listen_interface_prefer_ipv6. If false the first ipv4
 # address will be used. If true the first ipv6 address will be used. Defaults to false preferring
 # ipv4. If there is only one address it will be selected regardless of ipv4/ipv6.
-listen_address: localhost
+listen_address: _LISTEN_ADDRESS_
 # listen_interface: eth0
 # listen_interface_prefer_ipv6: false
 
@@ -454,7 +454,7 @@ rpc_port: 9160
 # be set to 0.0.0.0. If left blank, this will be set to the value of
 # rpc_address. If rpc_address is set to 0.0.0.0, broadcast_rpc_address must
 # be set.
-broadcast_rpc_address: localhost
+broadcast_rpc_address: _BROADCAST_ADDRESS_
 
 # enable or disable keepalive on rpc/native connections
 rpc_keepalive: true
@@ -806,4 +806,5 @@ internode_compression: dc
 # latency if you block for cross-datacenter responses.
 inter_dc_tcp_nodelay: false
 
-auto_bootstrap: false
+auto_bootstrap: _AUTO_BOOTSTRAP_
+

@@ -20,4 +20,4 @@ ENTRYPOINT [ "/usr/bin/dserun" ]
 
 EXPOSE 7000 7001 9042 9160 7077 7080 7081 7199
 
-CMD ["cassandra -k -f"]
+CMD ["cassandra", "-k", "-f"]

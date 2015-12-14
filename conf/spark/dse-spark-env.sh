@@ -43,7 +43,7 @@ else
     export LD_LIBRARY_PATH="$JAVA_LIBRARY_PATH"
 fi
 
-export SPARK_COMMON_OPTS=" -Dspark.kryoserializer.buffer.mb=10 $DSE_OPTS "
+export SPARK_COMMON_OPTS=" -Dspark.kryoserializer.buffer=10m $DSE_OPTS "
 
 export SPARK_WORKER_OPTS="$SPARK_WORKER_OPTS $SPARK_COMMON_OPTS "
 export SPARK_WORKER_OPTS="$SPARK_WORKER_OPTS $(log_config "logback-spark-server.xml" "$SPARK_WORKER_LOG_DIR/$workerSubDir" "worker.log") "
