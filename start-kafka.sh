@@ -38,10 +38,14 @@ done
 
 $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties &
 KAFKA_SERVER_PID=$!
+
 function stop_kafka() {
- kill -TERM ${KAFKA_SERVER_PID}
+ trap - EXIT
+ echo "Killing kafka daemon pid=$1"
+ kill -TERM ${1}
+ exit
 }
-trap stop_kafka TERM
+trap "stop_kafka ${KAFKA_SERVER_PID}" SIGHUP SIGINT SIGTERM EXIT
 while netstat -lnt | awk '$4 ~ /:9092$/ {exit 1}'; do sleep 1; done
 
 if [[ -n $KAFKA_CREATE_TOPICS ]]; then
