@@ -3,7 +3,9 @@ FROM java:7
 MAINTAINER alexsmirnov
 
 ENV ZOOKEEPER_VERSION=3.4.7
+
 COPY download-zookeeper.sh /usr/bin
+
 RUN /usr/bin/download-zookeeper.sh \
    | tar -xzf - -C /opt
 
