@@ -12,7 +12,7 @@ RUN echo "deb http://alexander.smirnov_mulesoft.com:bYDUKqZc8nQGGE6@debian.datas
 
 VOLUME ["/dse"]
 
-COPY conf/ /etc/dse/
+COPY conf/cassandra/cassandra.yaml.template /etc/dse/cassandra/
 COPY dserun.sh /usr/bin/dserun
 ENV MAX_HEAP_SIZE="1G" HEAP_NEWSIZE="400M"
 
