@@ -3,7 +3,7 @@ FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK7
 
 MAINTAINER alexsmirnov 
 
-ENV DSE_VERSION="4.8.3-1" SCALA_VERSION="2.10"
+ENV DSE_VERSION="4.8.4-1" SCALA_VERSION="2.10"
 ADD https://debian.datastax.com/debian/repo_key /tmp/dse_key
 RUN echo "deb http://alexander.smirnov_mulesoft.com:bYDUKqZc8nQGGE6@debian.datastax.com/enterprise stable main" > /etc/apt/sources.list.d/datastax.sources.list && \
     cat /tmp/dse_key | apt-key add - && \
