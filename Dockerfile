@@ -3,7 +3,7 @@ FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK8
 
 MAINTAINER alexsmirnov 
 
-ENV KAFKA_VERSION="0.8.2.1" SCALA_VERSION="2.10"
+ENV KAFKA_VERSION="0.9.0.1" SCALA_VERSION="2.10"
 
 #RUN apt-get update \
       #&& apt-get install -y unzip wget curl \
