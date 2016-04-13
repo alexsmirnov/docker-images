@@ -1,9 +1,9 @@
 #FROM ubuntu:trusty
-FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK7
+FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK8
 
 MAINTAINER alexsmirnov 
 
-ENV DSE_VERSION="4.8.5-1" SCALA_VERSION="2.10"
+ENV DSE_VERSION="4.8.6-1" SCALA_VERSION="2.10"
 ADD https://debian.datastax.com/debian/repo_key /tmp/dse_key
 RUN echo "deb http://alexander.smirnov_mulesoft.com:bYDUKqZc8nQGGE6@debian.datastax.com/enterprise stable main" > /etc/apt/sources.list.d/datastax.sources.list && \
     cat /tmp/dse_key | apt-key add - && \
@@ -18,6 +18,6 @@ ENV MAX_HEAP_SIZE="1G" HEAP_NEWSIZE="400M"
 
 ENTRYPOINT [ "/usr/bin/dserun" ]
 
-EXPOSE 7000 7001 9042 9160 7077 7080 7081 7199
+EXPOSE 7000 7001 9042 9160 7077 7080 7081 4040 4041 4042 7199
 
 CMD ["cassandra", "-k", "-f"]
