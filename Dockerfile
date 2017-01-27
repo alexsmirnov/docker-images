@@ -1,26 +1,16 @@
-FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK8
+FROM alexsmirnov/servers:spark-2.1.0
 
 MAINTAINER alexsmirnov 
 
-ENV hadoop_ver_major 2.7
-ENV hadoop_ver_minor 3
-ENV hadoop_ver "${hadoop_ver_major}.${hadoop_ver_minor}"
-ENV spark_ver 2.1.0
+ENV zeppelin_ver 0.6.2
 
-
-RUN apt-get update \
-      && apt-get install -y curl python-numpy \
-      && mkdir -p /opt \
-      && curl http://mirrors.ibiblio.org/apache/hadoop/common/hadoop-${hadoop_ver}/hadoop-${hadoop_ver}.tar.gz | \
-          tar -zx -C /opt hadoop-${hadoop_ver}/lib/native \
-      && curl http://mirrors.ibiblio.org/apache/spark/spark-${spark_ver}/spark-${spark_ver}-bin-hadoop${hadoop_ver_major}.tgz | \
+RUN curl http://mirrors.ibiblio.org/apache/zeppelin/zeppelin-${zeppelin_ver}/zeppelin-${zeppelin_ver}-bin-netinst.tgz | \
           tar -zx -C /opt \
-      && ln -s /opt/spark-${spark_ver}-bin-hadoop${hadoop_ver_major} /opt/spark \
-      && ln -s /opt/hadoop-${hadoop_ver} /opt/hadoop \
-      && apt-get clean \
-      && rm -rf /var/lib/apt/lists/* 
+      && ln -s /opt/zeppelin-${zeppelin_ver}-bin-netinst /opt/zeppelin \
+      && ls -la /opt
 
-COPY *.sh /opt/spark/bin/
-
-COPY conf/* /opt/spark/conf/
-ENV PATH $PATH:/opt/spark/bin
+COPY zeppelin-log4j.properties /opt/zeppelin/conf/log4j.properties
+COPY zeppelin-env.sh /opt/zeppelin/conf/zeppelin-env.sh
+COPY docker-zeppelin.sh /opt/zeppelin/bin/docker-zeppelin.sh
+EXPOSE 8080
+ENTRYPOINT ["/opt/zeppelin/bin/docker-zeppelin.sh"]
