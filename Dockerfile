@@ -1,4 +1,4 @@
-FROM alexsmirnov/servers:spark-2.1.0
+FROM alexsmirnov/servers:spark-2.0.2
 
 MAINTAINER alexsmirnov 
 
