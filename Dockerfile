@@ -5,7 +5,7 @@ MAINTAINER alexsmirnov
 ENV hadoop_ver_major 2.7
 ENV hadoop_ver_minor 3
 ENV hadoop_ver "${hadoop_ver_major}.${hadoop_ver_minor}"
-ENV spark_ver 2.1.0
+ENV spark_ver 2.0.2
 
 
 RUN apt-get update \
