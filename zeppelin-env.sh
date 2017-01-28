@@ -14,12 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export MASTER="spark://spark-master:7077"
 export SPARK_HOME=/opt/spark
 # TODO(zmerlynn): Setting global CLASSPATH *should* be unnecessary,
 # but ZEPPELIN_JAVA_OPTS isn't enough here. :(
-export ZEPPELIN_NOTEBOOK_DIR="${ZEPPELIN_HOME}/notebook"
-export ZEPPELIN_MEM=-Xmx1024m
 export ZEPPELIN_PORT=8080
 py4j=`ls ${SPARK_HOME}/python/lib/py4j-*-src.zip`
 export PYTHONPATH="${SPARK_HOME}/python:${py4j}"

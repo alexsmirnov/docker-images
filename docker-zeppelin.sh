@@ -14,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export ZEPPELIN_HOME=/opt/zeppelin
-export ZEPPELIN_CONF_DIR="${ZEPPELIN_HOME}/conf"
 
 echo "=== Launching Zeppelin under Docker ==="
 exec /opt/zeppelin/bin/zeppelin.sh "${ZEPPELIN_CONF_DIR}"
